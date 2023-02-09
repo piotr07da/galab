@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "JT3Dt4ZcvuPclnLYpijDK8cioouWNO5w6nAKuYn/z4tq0/0+gqROx8wdKU5GxsT4ATyn9UT2kHBP6pz5helY7A==",
+  "success": true,
+  "projectFilePath": "C:\\_git\\galab\\Galab\\Galab\\Galab.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\piotr\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\piotr\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
