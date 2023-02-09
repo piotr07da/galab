@@ -1,17 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
+		<TargetFrameworks>netstandard2.0;</TargetFrameworks>
 		<Copyright>Piotr Bejger</Copyright>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 		<Version>1.0.0-alpha</Version>
 		<Authors>piotr07da</Authors>
 		<Company>Piotr Bejger</Company>
 		<Description>Galab</Description>
-		<RepositoryUrl>https://github.com/piotr07da/galab</RepositoryUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
 	</PropertyGroup>
+	
 </Project>
 

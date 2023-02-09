@@ -11,10 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Galab")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Piotr Bejger")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("Piotr Bejger")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("Galab")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0-alpha")]
 [assembly: System.Reflection.AssemblyProductAttribute("Galab")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Galab")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

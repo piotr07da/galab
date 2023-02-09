@@ -13,6 +13,7 @@
         "packagesPath": "C:\\Users\\piotr\\.nuget\\packages\\",
         "outputPath": "C:\\_git\\galab\\Galab\\Galab\\obj\\",
         "projectStyle": "PackageReference",
+        "crossTargeting": true,
         "configFilePaths": [
           "C:\\Users\\piotr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
