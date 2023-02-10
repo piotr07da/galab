@@ -1,4 +1,6 @@
 name: Galab Build Workflow
+env:
+  GALAB_VERSION: 1.0.2-alpha
 run-name: ${{ github.actor }} is running GitHub Actions 🚀
 on:
   push:
@@ -24,17 +26,45 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-version: ['7.0.x' ]
 
     steps:
       - uses: actions/checkout@v3
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: ${{ matrix.dotnet-version }}
-      - name: Install dependencies
+          dotnet-version: '7.0.x'
+      - name: Restore packages
         run: dotnet restore Galab
       - name: Build
-        run: dotnet build Galab --configuration Release --no-restore
+        run: dotnet build Galab -c Release --no-restore
       - name: Test
-        run: dotnet test Galab --no-restore --verbosity normal
+        run: dotnet test Galab -c Release --no-restore --verbosity normal --no-build
+        working-directory: Galab/Galab.Tests
+
+  test-cosmosdb:
+  
+  test-eventstore:
+  
+  calc-version:
+    name: Calculate Version
+    runs-on: ubuntu-latest
+    needs:
+      - build
+      - test-cosmosdb
+      - test-eventstore
+    outputs:
+      version: ${{ steps.ver.outputs.version }}
+    steps:
+      - id: ver
+        run: |
+          if [ "${{ github.ref }}" = 'refs/heads/master' ]; then
+            echo "version=${GALAB_VERSION}" >> $GITHUB_OUTPUT
+          else
+            echo "version=${GALAB_VERSION}-develop.${{ github.run_number }}" >> $GITHUB_OUTPUT
+          fi
+  
+  publish:
+    name: Build and Publish NuGets
+    steps:
+      - name: pack
+        run: dotnet pack Galab
