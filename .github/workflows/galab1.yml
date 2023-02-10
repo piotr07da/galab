@@ -39,11 +39,13 @@ jobs:
         working-directory: Galab/Galab.Tests
 
   test-cosmosdb:
+    runs-on: ubuntu-latest
     steps:
       - name: dotnet info
         run: dotnet --info
   
   test-eventstore:
+    runs-on: ubuntu-latest
     steps:
       - name: dotnet info
         run: dotnet --info
@@ -68,6 +70,7 @@ jobs:
   
   publish:
     name: Build and Publish NuGets
+    runs-on: ubuntu-latest
     steps:
       - name: pack
         run: dotnet pack Galab
