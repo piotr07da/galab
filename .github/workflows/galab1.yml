@@ -75,9 +75,10 @@ jobs:
       - build
       - calc-version
     steps:
+      - uses: actions/checkout@v3
       - name: Version Output Check
         run: |
           echo "${{ needs.calc-version.outputs.version }}"
       - name: pack
-        run: dotnet pack Galab.csproj --no-build --no-restore --version-suffix ${{ needs.calc-version.outputs.version }}
+        run: dotnet pack Galab.csproj --version-suffix ${{ needs.calc-version.outputs.version }}
         working-directory: Galab/Galab
