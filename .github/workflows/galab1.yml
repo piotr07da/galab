@@ -24,9 +24,6 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-
     steps:
       - uses: actions/checkout@v3
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
