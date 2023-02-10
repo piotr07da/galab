@@ -43,9 +43,13 @@ jobs:
 
   test-cosmosdb:
     steps:
+      - name: dotnet info
+        run: dotnet --info
   
   test-eventstore:
     steps:
+      - name: dotnet info
+        run: dotnet --info
   
   calc-version:
     name: Calculate Version
