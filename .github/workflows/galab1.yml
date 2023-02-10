@@ -42,8 +42,10 @@ jobs:
         working-directory: Galab/Galab.Tests
 
   test-cosmosdb:
+    steps:
   
   test-eventstore:
+    steps:
   
   calc-version:
     name: Calculate Version
