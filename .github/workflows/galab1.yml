@@ -71,6 +71,13 @@ jobs:
   publish:
     name: Build and Publish NuGets
     runs-on: ubuntu-latest
+    needs:
+      - build
+      - calc-version
     steps:
+      - name: Version Output Check
+        run: |
+          echo "${{ needs.calc-version.outputs.version }}"
       - name: pack
-        run: dotnet pack Galab
+        run: dotnet pack --no-build --no-restore --version-suffix ${{ needs.calc-version.outputs.version }}
+        working-directory: Galab/Galab.Tests
