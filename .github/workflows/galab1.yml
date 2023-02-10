@@ -35,7 +35,7 @@ jobs:
       - name: Build
         run: dotnet build Galab -c Release --no-restore
       - name: Test
-        run: dotnet test Galab -c Release --no-restore --verbosity normal --no-build
+        run: dotnet test -c Release --no-restore --verbosity normal --no-build
         working-directory: Galab/Galab.Tests
 
   test-cosmosdb:
