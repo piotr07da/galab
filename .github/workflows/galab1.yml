@@ -54,30 +54,18 @@ jobs:
         - "10253:10253"
         - "10254:10254"
         - "10255:10255"
+        options: >-
+          --memory 3g
+          --cpus=2.0
+          --tty
+          --publish 8081:8081
+          --publish 10250-10255:10250-10255
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '7.0.x'
-    - name: Restore packages
-      run: dotnet restore Galab
-    - name: Build
-      run: dotnet build Galab -c Release --no-restore
-    - name: Test
-      run: dotnet test -c Release --no-restore --verbosity normal --no-build --filter Category=CosmosDb
-      working-directory: Galab/Galab.Tests
-
-  test-docker-compose:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '7.0.x'
-    - name: compose
-      run: docker compose -f Galab/Galab.Tests/docker-compose.yml up
     - name: Restore packages
       run: dotnet restore Galab
     - name: Build
