@@ -37,6 +37,12 @@ jobs:
       - name: Test
         run: dotnet test -c Release --no-restore --verbosity normal --no-build
         working-directory: Galab/Galab.Tests
+      - name: Cache All
+        uses: actions/cache/save@v3
+        id: cache
+        with:
+          path: galab
+          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
 
   test-cosmosdb:
     runs-on: ubuntu-latest
@@ -46,9 +52,31 @@ jobs:
   
   test-eventstore:
     runs-on: ubuntu-latest
+    services:
+      eventstore:
+        image: eventstore/eventstore:21.10.9-bionic
+        env:
+          EVENTSTORE_CLUSTER_SIZE: 1
+          EVENTSTORE_RUN_PROJECTIONS: All
+          EVENTSTORE_START_STANDARD_PROJECTIONS: True
+          EVENTSTORE_EXT_TCP_PORT: 1113
+          EVENTSTORE_INSECURE: true
+          EVENTSTORE_ENABLE_EXTERNAL_TCP: true
+          EVENTSTORE_ENABLE_ATOM_PUB_OVER_HTTP: true
+        ports:
+        - "1113:1113"
+        - "2113:2113"
     steps:
       - name: dotnet info
         run: dotnet --info
+      - uses: actions/cache/restore@v3
+        id: cache
+        with:
+          path: galab
+          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+      - name: Test
+        run: dotnet test -c Release --no-restore --verbosity normal --no-build
+        working-directory: Galab/Galab.Tests
   
   calc-version:
     name: Calculate Version
