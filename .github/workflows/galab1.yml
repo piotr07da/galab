@@ -73,7 +73,7 @@ jobs:
       - uses: actions/cache/restore@v3
         id: cache
         with:
-          path: ~/galab
+          path: .
           key: ${{ runner.os }}-galab-build
       - name: Test
         run: dotnet test -c Release --no-restore --verbosity normal --no-build
