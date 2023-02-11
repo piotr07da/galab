@@ -20,6 +20,10 @@
 		</PackageReference>
 	</ItemGroup>
 
-	
+	<ItemGroup>
+		<PackageReference Include="EventStore.Client.Grpc.PersistentSubscriptions" Version="22.0.0" />
+		<PackageReference Include="EventStore.Client.Grpc.ProjectionManagement" Version="22.0.0" />
+		<PackageReference Include="EventStore.Client.Grpc.Streams" Version="22.0.0" />
+	</ItemGroup>
 
 </Project>

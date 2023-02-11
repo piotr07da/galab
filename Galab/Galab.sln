@@ -7,6 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Galab", "Galab\Galab.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Galab.Tests", "Galab.Tests\Galab.Tests.csproj", "{6C663F29-F2D6-4484-A18C-748C88A14D62}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{05AE4039-4B20-487B-B599-3F137EEF6E13}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\galab1.yml = ..\.github\workflows\galab1.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
