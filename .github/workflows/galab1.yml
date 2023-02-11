@@ -10,7 +10,7 @@ on:
 jobs:
   integ:
     runs-on: ubuntu-latest
-    name: integration-tests
+    name: build
     services:
       eventstore:
         image: eventstore/eventstore:21.10.9-bionic
