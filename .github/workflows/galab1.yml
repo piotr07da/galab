@@ -56,10 +56,9 @@ jobs:
         - "10255:10255"
         options: >-
           --memory 3g
-          --cpus=2.0
+          --cpus 2.0
           --tty
           --publish 8081:8081
-          --publish 10250-10255:10250-10255
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
