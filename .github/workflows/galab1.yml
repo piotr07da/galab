@@ -78,6 +78,13 @@ jobs:
         dotnet-version: '7.0.x'
     - name: compose
       run: docker compose -f Galab/Galab.Tests/docker-compose.yml up
+    - name: Restore packages
+      run: dotnet restore Galab
+    - name: Build
+      run: dotnet build Galab -c Release --no-restore
+    - name: Test
+      run: dotnet test -c Release --no-restore --verbosity normal --no-build --filter Category=CosmosDb
+      working-directory: Galab/Galab.Tests
   
   test-eventstore:
     runs-on: ubuntu-latest
