@@ -26,9 +26,6 @@ jobs:
         ports:
         - "1113:1113"
         - "2113:2113"
-        volumes:
-        - eventstore-volume-data:/var/lib/eventstore-data
-        - eventstore-volume-logs:/var/log/eventstore
     steps:
       - uses: actions/checkout@v3
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
