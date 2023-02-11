@@ -37,47 +37,32 @@ jobs:
       - name: Test
         run: dotnet test -c Release --no-restore --verbosity normal --no-build
         working-directory: Galab/Galab.Tests
-      - name: Cache All
-        uses: actions/cache/save@v3
-        id: cache
-        with:
-          path: ${GITHUB_WORKSPACE}
-          key: ${{ runner.os }}-galab-build
 
   test-cosmosdb:
     runs-on: ubuntu-latest
+    services:
+      cosmosdb:
+        image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
+        env:
+          AZURE_COSMOS_EMULATOR_PARTITION_COUNT: 8
+          AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE: false
+          AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE: 127.0.0.1
+        ports:
+        - "8081:8081"
+        - "10251:10251"
+        - "10252:10252"
+        - "10253:10253"
+        - "10254:10254"
+        - "10255:10255"
     steps:
       - name: dotnet info
         run: dotnet --info
   
   test-eventstore:
     runs-on: ubuntu-latest
-    needs: build
-    services:
-      eventstore:
-        image: eventstore/eventstore:21.10.9-bionic
-        env:
-          EVENTSTORE_CLUSTER_SIZE: 1
-          EVENTSTORE_RUN_PROJECTIONS: All
-          EVENTSTORE_START_STANDARD_PROJECTIONS: True
-          EVENTSTORE_EXT_TCP_PORT: 1113
-          EVENTSTORE_INSECURE: true
-          EVENTSTORE_ENABLE_EXTERNAL_TCP: true
-          EVENTSTORE_ENABLE_ATOM_PUB_OVER_HTTP: true
-        ports:
-        - "1113:1113"
-        - "2113:2113"
     steps:
       - name: dotnet info
         run: dotnet --info
-      - uses: actions/cache/restore@v3
-        id: cache
-        with:
-          path: .
-          key: ${{ runner.os }}-galab-build
-      - name: Test
-        run: dotnet test -c Release --no-restore --verbosity normal --no-build
-        working-directory: Galab/Galab.Tests
   
   calc-version:
     name: Calculate Version
