@@ -48,7 +48,7 @@ jobs:
           AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE: false
           AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE: 127.0.0.1
         ports:
-        - "8081:2223"
+        - "2223:8081"
         - "10251:10251"
         - "10252:10252"
         - "10253:10253"
