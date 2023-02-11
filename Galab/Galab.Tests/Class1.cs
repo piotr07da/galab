@@ -27,24 +27,5 @@ namespace Galab.Tests
             var c = new CosmosClient("AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==", clientOptions);
             await c.CreateDatabaseIfNotExistsAsync("testdbgalab");
         }
-
-        [Theory]
-        [InlineData(1)]
-        [InlineData(2)]
-        [InlineData(3)]
-        [Trait("Category", "CosmosDb")]
-        public async Task test_cosmos_db2(int t)
-        {
-            await Task.Delay(TimeSpan.FromSeconds(t));
-
-            var clientOptions = new CosmosClientOptions
-            {
-                HttpClientFactory = () => new HttpClient(new HttpClientHandler { ServerCertificateCustomValidationCallback = (_, _, _, _) => true, }),
-                ConnectionMode = ConnectionMode.Gateway,
-            };
-
-            var c = new CosmosClient("AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==", clientOptions);
-            await c.CreateDatabaseIfNotExistsAsync("testdbgalab");
-        }
     }
 }
