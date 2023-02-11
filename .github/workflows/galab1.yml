@@ -8,9 +8,8 @@ on:
       - 'master'
         
 jobs:
-  integ:
+  build:
     runs-on: ubuntu-latest
-    name: build
     services:
       eventstore:
         image: eventstore/eventstore:21.10.9-bionic
