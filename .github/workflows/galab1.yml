@@ -38,7 +38,7 @@ jobs:
       working-directory: Galab/Galab.Tests
 
   test-cosmosdb:
-    runs-on: macos-latest
+    runs-on: ubuntu-18.04
     services:
       cosmosdb:
         image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
