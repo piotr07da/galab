@@ -56,10 +56,7 @@ jobs:
         - "10255:10255"
         options: >-
           --memory 3g
-          --cpus 2.0
-          --tty
-          --platform linux
-          --restart unless-stopped
+          --cpus=2.0
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
