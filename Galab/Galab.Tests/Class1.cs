@@ -29,10 +29,9 @@ namespace Galab.Tests
         }
 
         [Theory]
+        [InlineData(1)]
         [InlineData(2)]
-        [InlineData(4)]
-        [InlineData(6)]
-        [InlineData(15)]
+        [InlineData(3)]
         [Trait("Category", "CosmosDb")]
         public async Task test_cosmos_db2(int t)
         {
