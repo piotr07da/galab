@@ -15,7 +15,7 @@ namespace Galab.Tests
         }
 
         [Fact]
-        [Trait("Category", "EventStore")]
+        [Trait("Category", "CosmosDb")]
         public async Task test_cosmos_db()
         {
             var clientOptions = new CosmosClientOptions
