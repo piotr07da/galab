@@ -27,8 +27,8 @@ jobs:
         - "1113:1113"
         - "2113:2113"
         volumes:
-        - /var/lib/eventstore-data:/var/lib/eventstore-data
-        - /var/lib/eventstore-data:/var/log/eventstore
+        - ./data:/var/lib/eventstore-data
+        - ./logs:/var/log/eventstore
     steps:
       - uses: actions/checkout@v3
       - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
