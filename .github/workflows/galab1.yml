@@ -41,7 +41,7 @@ jobs:
         uses: actions/cache/save@v3
         id: cache
         with:
-          path: ${GITHUB_PATH}
+          path: ${GITHUB_WORKSPACE}
           key: ${{ runner.os }}-galab-build
 
   test-cosmosdb:
