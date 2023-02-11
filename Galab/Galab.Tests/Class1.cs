@@ -24,7 +24,7 @@ namespace Galab.Tests
                 ConnectionMode = ConnectionMode.Gateway,
             };
 
-            var c = new CosmosClient("AccountEndpoint=https://localhost:2223/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==", clientOptions);
+            var c = new CosmosClient("AccountEndpoint=https://cosmosdb:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==", clientOptions);
             await c.CreateDatabaseIfNotExistsAsync("testdbgalab");
         }
 
@@ -44,7 +44,7 @@ namespace Galab.Tests
                 ConnectionMode = ConnectionMode.Gateway,
             };
 
-            var c = new CosmosClient("AccountEndpoint=https://localhost:2223/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==", clientOptions);
+            var c = new CosmosClient("AccountEndpoint=https://cosmosdb:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==", clientOptions);
             await c.CreateDatabaseIfNotExistsAsync("testdbgalab");
         }
     }
