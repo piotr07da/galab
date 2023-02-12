@@ -18,14 +18,30 @@ namespace Galab.Tests
         [Trait("Category", "CosmosDb")]
         public async Task test_cosmos_db()
         {
-            var clientOptions = new CosmosClientOptions
-            {
-                HttpClientFactory = () => new HttpClient(new HttpClientHandler { ServerCertificateCustomValidationCallback = (_, _, _, _) => true, }),
-                ConnectionMode = ConnectionMode.Gateway,
-            };
-
-            var c = new CosmosClient("AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==", clientOptions);
-            await c.CreateDatabaseIfNotExistsAsync("testdbgalab");
+            await new X().DoX();
         }
+    }
+}
+
+public class X
+{
+    public async Task DoX()
+    {
+        await new Y().DoT().ConfigureAwait(false);
+    }
+}
+
+public class Y
+{
+    public async Task DoT(CancellationToken ct = default)
+    {
+        var clientOptions = new CosmosClientOptions
+        {
+            HttpClientFactory = () => new HttpClient(new HttpClientHandler { ServerCertificateCustomValidationCallback = (_, _, _, _) => true, }),
+            ConnectionMode = ConnectionMode.Gateway,
+        };
+
+        var c = new CosmosClient("AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==", clientOptions);
+        await c.CreateDatabaseIfNotExistsAsync("testdbgalab", cancellationToken: ct);
     }
 }
