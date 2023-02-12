@@ -25,9 +25,9 @@ namespace Galab.Tests
 
 public class X
 {
-    public async Task DoX()
+    public async Task DoX(CancellationToken ct = default)
     {
-        await new Y().DoT().ConfigureAwait(false);
+        await new Y().DoT(ct).ConfigureAwait(false);
     }
 }
 
